@@ -33,9 +33,15 @@ function onItemClick(e: ItemClickEvent): void {
       @item-click="onItemClick"
       selection-mode="multiple"
     >
-      <DxItem badge="First"> </DxItem>
-      <DxItem text="Second" :disabled="true"> </DxItem>
-      <DxItem text="Third" icon="favorites"> </DxItem>
+      <DxItem badge="First"/>
+      <DxItem
+        text="Second"
+        :disabled="true"
+      />
+      <DxItem
+        text="Third"
+        icon="favorites"
+      />
       <DxItem>
         <div id="fourth">Fourth</div>
       </DxItem>

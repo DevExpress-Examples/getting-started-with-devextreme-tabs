@@ -5,7 +5,7 @@ import Tabs, { Item } from 'devextreme-react/tabs';
 import notify from 'devextreme/ui/notify';
 import type { ItemClickEvent } from 'devextreme/ui/tabs';
 
-const showMessage = (id: number): void => {
+function showMessage(id: number): void {
   notify(
     {
       message: `Tab ${id} has been clicked!`,
@@ -19,11 +19,11 @@ const showMessage = (id: number): void => {
     'info',
     500,
   );
-};
+}
 
-const renderFourth = (): JSX.Element => {
+function renderFourth(): JSX.Element {
   return <div id="fourth">Fourth</div>;
-};
+}
 
 function App(): JSX.Element {
   const onItemClick = useCallback((e: ItemClickEvent) => {

@@ -20,6 +20,7 @@ This repository stores the code examples of the Tabs component for the [Getting 
 - **React**
     - [App.tsx](React/src/App.tsx)
 - **Vue**
+    - [App.vue](Vue/src/App.vue)
     - [TabsContent.vue](Vue/src/components/TabsContent.vue)
 
 ## Documentation
