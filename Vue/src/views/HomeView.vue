@@ -3,6 +3,6 @@ import TabsContent from '../components/TabsContent.vue';
 </script>
 
 <template>
-  <TabsContent text="Count"/>
+  <TabsContent />
 </template>
 

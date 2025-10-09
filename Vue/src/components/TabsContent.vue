@@ -1,28 +1,57 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
-
 import 'devextreme/dist/css/dx.material.blue.light.compact.css';
-import DxButton from 'devextreme-vue/button';
+import DxTabs, { DxItem } from 'devextreme-vue/tabs';
+import notify from 'devextreme/ui/notify';
+import type { ItemClickEvent } from 'devextreme/ui/tabs';
 
-const props = defineProps({
-  text: {
-    type: String,
-    default: 'count',
-  },
-});
-const count = ref(0);
-const buttonText = computed<string>(
-  () => `Click ${props.text}: ${count.value}`
-);
-function clickHandler() {
-  count.value += 1;
+function showMessage(id: number): void {
+  notify(
+    {
+      message: `Tab ${id} has been clicked!`,
+      width: 250,
+      position: {
+        my: 'bottom',
+        at: 'bottom',
+        of: '#container',
+      },
+    },
+    'info',
+    500,
+  );
+}
+
+function onItemClick(e: ItemClickEvent): void {
+  showMessage(e.itemIndex + 1);
 }
 </script>
+
 <template>
-  <div>
-    <DxButton
-      :text="buttonText"
-      @click="clickHandler"
-    />
+  <div id="container">
+    <DxTabs
+      :width="300"
+      :selected-index="2"
+      @item-click="onItemClick"
+      selection-mode="multiple"
+    >
+      <DxItem badge="First"> </DxItem>
+      <DxItem text="Second" :disabled="true"> </DxItem>
+      <DxItem text="Third" icon="favorites"> </DxItem>
+      <DxItem>
+        <div id="fourth">Fourth</div>
+      </DxItem>
+    </DxTabs>
   </div>
 </template>
+
+<style scoped>
+#container {
+  width: 300px;
+  height: 130px;
+}
+
+#fourth {
+  text-align: center;
+  font-style: italic;
+  color: #f05b41;
+}
+</style>
